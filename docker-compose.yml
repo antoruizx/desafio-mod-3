@@ -1,0 +1,45 @@
+services:
+  db:
+    image: mysql:8.0    # Usamos una versión específica para mayor control
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+  web:
+    image: nginx:alpine  # Usa una imagen base más ligera
+    ports:
+      - "${WEB_PORT_1}:80"
+    networks:
+      - app-network
+
+  web_2:
+    image: nginx:alpine  # Usa una imagen base más ligera
+    ports:
+      - "${WEB_PORT_2}:80"
+    networks:
+      - app-network
+
+  web_3:
+    image: nginx:alpine  # Usa una imagen base más ligera
+    ports:
+      - "${WEB_PORT_3}:80"
+    networks:
+      - app-network
+
+  admin:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${PMA_PORT}:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
