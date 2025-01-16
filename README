@@ -1,0 +1,36 @@
+# Proyecto Docker con MySQL, phpMyAdmin y GitHub Actions
+
+Configuración realizada en la aplicación Node.js con Docker que incluye MySQL y phpMyAdmin, utilizando GitHub Actions para automatizar la construcción y publicación de imágenes Docker en Docker Hub.
+
+## Pasos realizados
+
+1. **Creación de cuenta en Docker Hub**
+   - Registré una cuenta en Docker Hub para almacenar y compartir imágenes Docker.
+
+2. **Configuración Docker Hub en GitHub Actions**
+   - Configuré un flujo de trabajo en GitHub Actions para construir la imagen Docker automáticamente y publicarla en Docker Hub.
+   - Utilicé secretos para las credenciales de Docker Hub.
+
+3. **Construcción y subida de imagen Docker a Docker Hub**
+   - Use un Dockerfile para construir la imagen Docker.
+   - La imagen se subió automáticamente a Docker Hub a través de GitHub Actions.
+
+4. **Configuración MySQL en Docker**
+   - Configuré un contenedor de MySQL en Docker utilizando `docker-compose.yml`.
+   - Gestioné los datos sensibles en un archivo `.env`.
+
+5. **Configuración phpMyAdmin**
+   - Añadí phpMyAdmin como contenedor en `docker-compose.yml` para gestionar MySQL desde la interfaz web.
+
+6. **Conexión phpMyAdmin a MySQL**
+   - Configuré phpMyAdmin para conectar la base de datos MySQL, utilizando las credenciales definidas en `.env`.
+
+7. **Verificación de la conexión**
+   - Ejecuté `docker-compose up` para levantar los contenedores y verificar que MySQL y phpMyAdmin funcionaban correctamente.
+
+## Requisitos presentados
+
+- Docker
+- Docker Compose
+- Cuenta en Docker Hub
+- Cuenta en GitHub
